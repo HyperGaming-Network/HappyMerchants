@@ -1,0 +1,218 @@
+
+protectorate = {
+    copy_from = default
+    count = default
+	
+	# Graphics:
+	sprite = GFX_subject_colony_icon
+	diplomacy_overlord_sprite = GFX_diplomacy_leadcolony
+	diplomacy_subject_sprite = GFX_diplomacy_subjectcolony
+	
+	# Properties:
+	transfer_trade_power = yes
+	uses_tariffs = yes
+	eats_overlords_colonies = yes
+	has_colonial_parent = yes
+	overlord_can_attack = no
+	overlord_can_be_subject = yes
+	separatists_become_subjects = yes
+	takes_diplo_slot = no
+	can_release_in_peace = yes
+	overlord_enforce_peace_attacking = yes
+	can_transfer_in_peace = no
+	allows_taking_land_without_independence = yes
+	created_by_overlord = yes
+	
+	forcelimit_bonus = 1.0
+	#max_government_rank = 1
+	has_power_projection = yes
+	gets_help_with_rebels = yes
+	can_have_subjects_of_other_types = yes
+	overlord_protects_external = yes
+	cities_required_for_bonuses = 10
+	
+	military_focus = 1.2
+	
+	base_liberty_desire = -25
+	relative_power_class = 1 
+	
+	# Subject Interactions:
+	replace_governor = yes
+	increase_tariffs = yes
+	decrease_tariffs = yes
+	grant_core_claim = yes
+	grant_province = yes
+	seize_territory = yes
+	placate_rulers = yes
+	siphon_income = yes
+	embargo_rivals = yes
+	joins_overlords_wars = yes
+	send_additional_troops = yes
+	press_sailors = yes
+	scutage = yes
+	send_officers = yes
+	subsidize_armies = yes
+	customize_subject = yes
+	
+	# Modifiers:
+	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
+	modifier_subject = clear #Ditto
+	modifier_overlord = {
+		modifier = large_colonial_nation
+		trigger = {
+			total_development = 25
+			NOT = { total_development = 150 }
+		}
+	}
+	modifier_overlord = {
+		modifier = very_large_colonial_nation
+		trigger = {
+			total_development = 150
+			NOT = { total_development = 1000 }
+		}
+	}
+	modifier_overlord = {
+		modifier = huge_colonial_nation
+		trigger = {
+			total_development = 1000
+		}
+	}
+	modifier_subject = {
+		modifier = march_bonus
+		trigger = {
+			NOT = {
+				total_development = 500
+			}
+		}
+		#expiration_message_overlord = MARCHTOOLARGE
+		#expiration_message_subject = MARCHTOOLARGEUS
+	}
+    
+    can_fight = {
+        independent_nations = yes
+        #other_overlord = all
+    }
+    can_rival = {
+        independent_nations = yes
+        other_overlord = all
+    }
+    can_ally = {
+        independent_nations = yes
+        other_overlord = all
+    }
+    can_marry = {
+        independent_nations = no
+        #other_overlord = all
+    }
+	
+	# Modifiers:
+	overlord_opinion_modifier = colonial_relation
+	subject_opinion_modifier = colonial_relation
+}
+
+
+client_vassal = {
+	# Properties:
+	separatists_become_subjects = yes
+	takes_diplo_slot = no
+	can_release_in_peace = yes
+	allows_taking_land_without_independence = yes
+	
+	
+	base_liberty_desire = -15
+	liberty_desire_negative_prestige = 0.25
+	liberty_desire_development_ratio = 0.35
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 1.0
+	forcelimit_bonus = 1.0
+	
+	overlord_protects_external = yes
+	
+	relative_power_class = 1 
+	
+	can_marry = {
+        independent_nations = no
+        #other_overlord = all
+    }
+	
+	# Subject Interactions:
+	grant_province = yes
+	seize_territory = yes
+	placate_rulers = yes
+	siphon_income = yes
+	embargo_rivals = yes
+	joins_overlords_wars = yes
+	scutage = yes
+	customize_subject = yes
+
+}
+
+client_march = {
+	copy_from = client_vassal
+	
+	# Properties:
+	separatists_become_subjects = yes
+	takes_diplo_slot = no
+	can_release_in_peace = yes
+	allows_taking_land_without_independence = yes
+	
+	base_liberty_desire = -25
+	liberty_desire_negative_prestige = 0.25
+	liberty_desire_development_ratio = 0.25
+	liberty_desire_same_dynasty = -5.0
+	#pays_overlord = 1.0
+	#forcelimit_bonus = 1.0
+	
+	overlord_protects_external = yes
+	
+	relative_power_class = 1 
+	
+	# Subject Interactions:
+	grant_province = yes
+	seize_territory = yes
+	placate_rulers = yes
+	joins_overlords_wars = yes
+	send_additional_troops = yes
+	press_sailors = yes
+	scutage = yes
+	send_officers = yes
+	subsidize_armies = yes
+	customize_subject = yes
+	
+	
+	modifier_subject = clear
+	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
+	modifier_subject = clear #Ditto
+	modifier_subject = {
+		modifier = subject_nation
+	}
+	modifier_overlord = {
+		modifier = march_subject
+	}
+	modifier_subject = {
+		modifier = march_bonus
+		trigger = {
+			NOT = {
+				total_development = 200
+			}
+		}
+		expiration_message_overlord = MARCHTOOLARGE
+		expiration_message_subject = MARCHTOOLARGEUS
+	}
+	can_fight = {
+        independent_nations = yes
+        #other_overlord = all
+    }
+    can_rival = {
+        independent_nations = yes
+        other_overlord = all
+    }
+    can_ally = {
+        independent_nations = yes
+        other_overlord = all
+    }
+    can_marry = {
+        independent_nations = no
+        #other_overlord = all
+    }
+}

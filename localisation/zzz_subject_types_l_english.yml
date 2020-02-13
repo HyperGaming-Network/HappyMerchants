@@ -1,0 +1,6 @@
+﻿l_english:
+ farming_subject_title:1 "Appanage"
+ farming_subject_title_plural:1 "Appanages"
+ farming_subject_long_desc:1 "An appanage is a subject whose title reverts to the crown upon extinction of the male line."
+ farming_subject_is_our:1 "$NAME|Y$ is our appanage"
+ farming_subject_no_overlord_dow:0 "You can't declare war on your Appanages."

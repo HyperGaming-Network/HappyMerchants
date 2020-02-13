@@ -1,0 +1,517 @@
+# allow trigger is evaluated with scope province set to 1st province in Area, ROOT = Investor Country
+# area_modifier = { }			all provinces in area
+# company_province_area_modifier = { } own provinces within area
+# owner_company_region_modifier = { } owner all provinces in company region 
+# company_region_modifier = { } all provinces in company region
+# owner_modifier = { } owner global effects
+#
+# Company Garrison
+
+local_quarter = {
+
+	category = company_garrison
+
+	sprite = "GFX_investment_local_quarter"
+	
+	upgrades_to = permanent_quarters
+	
+	cost = 300.0
+	
+		
+	company_province_area_modifier = {
+		local_defensiveness = 0.30
+		garrison_growth = 0.30
+		local_manpower = 0.5
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+permanent_quarters = {
+
+	category = company_garrison
+
+	sprite = "GFX_investment_permanent_quarter"
+
+	cost = 900.0
+	allow = {
+		has_trade_company_investment_in_area  = {
+                investment = local_quarter
+                investor = ROOT
+		}
+	}
+
+	company_province_area_modifier = {
+		local_defensiveness = 0.30
+		garrison_growth = 0.60
+		local_manpower = 2
+		regiment_recruit_speed = -0.4
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+officers_mess = { #Military Academy
+
+	category = company_garrison
+
+	sprite = "GFX_investment_officers_mess"
+
+	cost = 2000.0
+
+	allow = {
+		#check_variable = { which = urban_pop value = 5 }
+		NOT = {
+			num_investments_in_trade_company_region = { 
+				investment = officers_mess
+				value = 1
+			}
+		}
+	}
+	allow = {
+		has_trade_company_investment_in_area  = {
+                investment = permanent_quarters
+                investor = ROOT
+		}
+	}
+	
+	owner_modifier = {
+		army_tradition = 0.05
+		garrison_size = 0.02
+		fort_maintenance_modifier = 0.02
+		global_tax_income = -6
+		land_forcelimit = 2
+		#fort_maintenance_modifier = -0.02
+	}
+	owner_company_region_modifier = { 
+		local_manpower_modifier = 0.5
+	}
+	
+	ai_global_worth = { factor = 1 }
+	ai_area_worth = { factor = 0 }
+	ai_region_worth = { factor = 0 }
+}
+
+
+# Harbor
+company_warehouse = {
+
+	category = harbor
+
+	sprite = "GFX_investment_company_warehouse"
+	
+	upgrades_to = company_depot
+		
+	cost = 300.0
+
+	company_province_area_modifier = {
+		province_trade_power_value = 2
+		#local_sailors_modifier = 0.25
+		#local_friendly_movement_speed = 0.50
+	}
+
+	area_modifier = {
+		supply_limit = 2
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+company_depot = {
+
+	category = harbor
+	
+	sprite = "GFX_investment_company_depot"
+
+	cost = 900.0
+
+	company_province_area_modifier = {
+		province_trade_power_value = 4
+		#local_sailors_modifier = 0.50
+		#local_friendly_movement_speed = 1.00
+	}
+
+	area_modifier = {
+		supply_limit = 4
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+admiralty = {
+
+	category = harbor
+
+	sprite = "GFX_investment_admiralty"
+
+	cost = 2000.0
+
+	allow = {
+		NOT = {
+			num_investments_in_trade_company_region = { 
+				investment = admiralty
+				value = 1
+			}
+		}
+	}
+	
+	owner_modifier  = {
+		navy_tradition = 0.05
+		navy_tradition_decay = -0.001
+		sailor_maintenance_modifer = -0.02
+		sailors_recovery_speed = 0.02
+		#global_sailors_modifier = 0.02
+		global_tax_income = -12
+		naval_forcelimit = 2
+	}
+	
+	owner_company_region_modifier = {
+		local_sailors_modifier = 0.50
+	}
+	
+	ai_global_worth = { factor = 1 }
+	ai_area_worth = { factor = 0 }
+	ai_region_worth = { factor = 0 }
+}
+
+# Local Venture
+
+brokers_office = {
+
+	category = local_venture
+		
+	sprite = "GFX_investment_brokers_office"
+
+	upgrades_to = brokers_exchange
+		
+	cost = 300.0
+
+	#company_province_area_modifier = {
+	#	local_production_efficiency = 0.10
+	#}
+
+	area_modifier = {
+		#trade_goods_size = 0.5
+		trade_value = 1.0
+		trade_value_modifier = 0.10
+		#trade_goods_size_modifier = 0.1
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+brokers_exchange = {
+
+	category = local_venture
+				
+	sprite = "GFX_investment_brokers_exchange"
+
+	cost = 1500.0
+
+	#company_province_area_modifier = {
+	#	local_production_efficiency = 0.2
+	#}
+
+	area_modifier = {
+		#trade_goods_size = 1
+		trade_value = 2.0
+		trade_value_modifier = 0.2
+		#trade_goods_size_modifier = 0.2
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+property_appraiser = {
+
+	category = local_venture
+			
+	sprite = "GFX_investment_property_appraiser"
+
+	cost = 2000.0
+
+	allow = {
+		NOT = {
+			num_investments_in_trade_company_region = { 
+				investment = property_appraiser
+				value = 1
+			}
+		}
+	}
+	
+	owner_company_region_modifier = {
+		trade_steering = 0.25
+	}
+	company_region_modifier = {
+		trade_value_modifier = 0.1
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 0 }
+	ai_region_worth = { factor = 2 }
+}
+
+# Foreign Influence
+
+settlements = {
+
+	category = foreign_influence
+		
+	sprite = "GFX_investment_settlements"
+
+	upgrades_to =  district
+		
+	cost = 600.0
+
+	company_province_area_modifier = {
+		local_build_time = -0.2
+		local_build_cost = -0.05
+		local_development_cost = -0.2
+		local_production_efficiency = 0.20
+	}
+	
+
+	area_modifier = {
+		#local_production_efficiency = 0.20
+		trade_goods_size_modifier = 0.02
+		#trade_value_modifier = 0.02
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+district = {
+
+	category = foreign_influence
+		
+	sprite = "GFX_investment_district"
+	
+	upgrades_to = townships
+	
+	cost = 2400.0
+
+	company_province_area_modifier = {
+		local_build_time = -0.35
+		local_build_cost = -0.10
+		local_development_cost = -0.3
+		local_production_efficiency = 0.40
+	}
+	allow = {
+		has_trade_company_investment_in_area  = {
+                investment = settlements
+                investor = ROOT
+		}
+	}
+	
+	area_modifier = {
+		#local_production_efficiency = 0.40
+		trade_goods_size_modifier = 0.04
+		#trade_value_modifier = 0.04
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+townships = {
+
+	category = foreign_influence
+	
+	sprite = "GFX_investment_townships"
+	
+	cost = 5600.0
+			
+	#allow = {
+	#	NOT = {
+	#		num_investments_in_trade_company_region = { 
+	#			investment = townships
+	#			value = 1
+	#		}
+	#	}
+	#}
+	allow = {
+		has_trade_company_investment_in_area  = {
+                investment = district
+                investor = ROOT
+		}
+	}
+
+	company_province_area_modifier = {
+		local_build_time = -0.50
+		local_build_cost = -0.15
+		local_development_cost = -0.4
+		local_production_efficiency = 0.60
+	}
+	
+	area_modifier = {
+		#local_production_efficiency = 0.40
+		trade_goods_size_modifier = 0.04
+		#trade_value_modifier = 0.05
+	}
+	
+	company_region_modifier = {
+		#trade_value_modifier = 0.02
+		trade_goods_size_modifier = 0.01
+	}
+	
+
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+
+# Governance
+
+company_administration = {
+
+	category = governance
+	
+	sprite = "GFX_investment_company_administration"
+	
+	upgrades_to = military_administration
+	
+	cost = 600.0
+	
+	company_province_area_modifier = {
+		min_local_autonomy = -5
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+military_administration = {
+
+	category = governance
+	
+	sprite = "GFX_investment_military_administration"
+	
+	cost = 1800.0
+	
+	company_province_area_modifier = {
+		min_local_autonomy = -10
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+governor_general_mansion = {
+
+	category = governance
+	
+	sprite = "GFX_investment_governor_general_mansion"
+	
+	cost = 2400.0
+			
+	allow = {
+		NOT = {
+			num_investments_in_trade_company_region = { 
+				investment = governor_general_mansion
+				value = 1
+			}
+		}
+	}
+	
+	owner_company_region_modifier = {
+		local_autonomy = -0.15
+		global_tax_income = -6
+	}
+
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 0 }
+}
+
+
+# Agriculture
+
+farm_estates = {
+
+	category = agricultural_investments
+	
+	sprite = "GFX_agriculture_level_1"
+	
+	upgrades_to = farm_plantations
+	
+	cost = 600.0
+	
+	company_province_area_modifier = {
+		trade_goods_size = 0.5
+		trade_goods_size_modifier = 0.10
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+farm_plantations = {
+
+	category = agricultural_investments
+	
+	sprite = "GFX_agriculture_level_2"
+	
+	cost = 4200.0
+	
+	company_province_area_modifier = {
+		trade_goods_size = 2
+		trade_goods_size_modifier = 0.30
+	}
+	
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 2 }
+	ai_region_worth = { factor = 0 }
+}
+
+farm_investments = {
+
+	category = agricultural_investments
+	
+	sprite = "GFX_agriculture_level_3"
+	
+	cost = 2400.0
+			
+	#allow = {
+	#	NOT = {
+	#		num_investments_in_trade_company_region = { 
+	#			investment = farm_investments
+	#			value = 1
+	#		}
+	#	}
+	#}
+	area_modifier = { 
+		trade_goods_size_modifier = 0.1
+		trade_goods_size = 0.1
+	}
+	
+	company_region_modifier = {
+		trade_goods_size_modifier = 0.02
+	}
+
+	ai_global_worth = { factor = 0 }
+	ai_area_worth = { factor = 1 }
+	ai_region_worth = { factor = 1 }
+}
+
+
+
+

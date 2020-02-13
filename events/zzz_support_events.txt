@@ -1,0 +1,411 @@
+	namespace = zzz_support_event
+	country_event = {
+		id = zzz_support_event.101
+		title = zzz_support_event.101.t
+		desc = zzz_support_event.101.d
+		picture = DIPLOMACY_eventPicture
+		is_triggered_only = yes
+		
+		option = { #Foreign Trading Posts
+			name = "zzz_support_event.4.t"
+			hidden_effect = { country_event = { id = zzz_support_event.4 } }
+		}
+		option = { #AI Difficulty
+			name = "zzz_support_event.2.t"
+			hidden_effect = { country_event = { id = zzz_support_event.2 } }
+		}
+		option = { #AI Crop Planting
+			name = "zzz_plant_crop.200.t"
+			hidden_effect = { country_event = { id = zzz_plant_crop.200 } }
+		}
+		option = { #AI White Peace Enable
+			name = "zzz_support_event.3.enable"
+			trigger = {
+				NOT = { has_global_flag = zzz_white_peace }
+			}
+			set_global_flag = zzz_white_peace
+			hidden_effect = { 
+				country_event = { id = zzz_support_event.3 } 
+				country_event = { id = zzz_support_event.101 }
+			}
+		}
+		option = { #AI White Peace Disable
+			name = "zzz_support_event.3.disable"
+			trigger = {
+				has_global_flag = zzz_white_peace
+			}
+			clr_global_flag = zzz_white_peace
+			hidden_effect = { 
+				country_event = { id = zzz_support_event.101 }
+			}
+		}
+		
+		option = { ### Bye bye
+		name = exit
+		highlight = yes
+		}
+	}
+	
+	
+	#Dynamic AI Buffs
+	#Enable/disable
+	country_event = {
+		id = zzz_support_event.2
+		title = zzz_support_event.2.t
+		desc = zzz_support_event.2.d
+		#fire_only_once = yes
+		is_triggered_only = yes
+		trigger = { 
+			ai = no 
+		}
+		
+		option = {
+			name = "zzz_support_event.2.enable"
+			trigger = {
+				NOT = { has_country_flag = zzz_ai_support_on }
+			}
+			set_country_flag = zzz_ai_support_on
+			country_event = {
+				id = zzz_support_event.201
+			}
+		}
+		option = {
+			name = "zzz_support_event.2.disable"
+			trigger = {
+				has_country_flag = zzz_ai_support_on
+			}
+			clr_country_flag = zzz_ai_support_on
+			every_country = {
+				remove_country_modifier = zzz_ai_support_1
+				remove_country_modifier = zzz_ai_support_2
+				remove_country_modifier = zzz_ai_support_3
+				remove_country_modifier = zzz_ai_support_4
+			}
+		}
+		option = { ### Bye bye
+		name = exit
+		highlight = yes
+		}
+	}
+	
+	#Apply buffs
+	country_event = {
+		id = zzz_support_event.201
+		title = zzz_support_event.EVTNAME2
+		desc = zzz_support_event.EVTDESC2
+		picture = DIPLOMACY_eventPicture
+		hidden = yes
+		
+		trigger = {
+			ai = no
+			has_country_flag = zzz_ai_support_on
+		}
+
+		mean_time_to_happen = { months = 6 }
+		
+		
+		immediate = {
+			#remove_country_modifier = zzz_ai_support_1		#clear any buffs to the player from tag switching shenanigans
+			#remove_country_modifier = zzz_ai_support_2
+			#remove_country_modifier = zzz_ai_support_3
+			#remove_country_modifier = zzz_ai_support_4
+
+			if = {
+				limit = {
+					is_great_power = yes
+				}
+				if = {    #rank 6-8 great power
+					limit = {
+						great_power_rank = 6
+						NOT = { great_power_rank = 9 }
+					}
+					every_country = {
+						limit = {
+							ai = yes
+						}
+						add_country_modifier = {
+							name = zzz_ai_support_4
+							duration = 3650
+						}
+						remove_country_modifier = zzz_ai_support_1
+						remove_country_modifier = zzz_ai_support_2
+						remove_country_modifier = zzz_ai_support_3
+					}
+				}
+				else_if = {    #rank 4-5 great power
+					limit = {
+						great_power_rank = 4
+					}
+					every_country = {
+						limit = {
+							ai = yes
+						}
+						add_country_modifier = {
+							name = zzz_ai_support_3
+							duration = 3650
+						}
+						remove_country_modifier = zzz_ai_support_1
+						remove_country_modifier = zzz_ai_support_2
+						remove_country_modifier = zzz_ai_support_4
+					}
+				}
+				else_if = {    #rank 2-3 great power
+					limit = {
+						great_power_rank = 2
+					}
+					every_country = {
+						limit = {
+							ai = yes
+						}
+						add_country_modifier = {
+							name = zzz_ai_support_2
+							duration = 3650
+						}
+						remove_country_modifier = zzz_ai_support_1
+						remove_country_modifier = zzz_ai_support_3
+						remove_country_modifier = zzz_ai_support_4
+					}
+				}
+				else_if = {    #rank 1 great power
+					limit = {
+						great_power_rank = 1
+					}
+					every_country = {
+						limit = {
+							ai = yes
+						}
+						add_country_modifier = {
+							name = zzz_ai_support_1
+							duration = 3650
+						}
+						remove_country_modifier = zzz_ai_support_2
+						remove_country_modifier = zzz_ai_support_3
+						remove_country_modifier = zzz_ai_support_4
+					}
+				}
+			}
+			else = {
+				every_country = {
+					limit = {
+						ai = yes
+					}
+					add_country_modifier = {
+							name = zzz_ai_support_0
+							duration = 3650
+						}
+					remove_country_modifier = zzz_ai_support_1
+					remove_country_modifier = zzz_ai_support_2
+					remove_country_modifier = zzz_ai_support_3
+					remove_country_modifier = zzz_ai_support_4
+				}
+			}
+		}
+		option = { ### Bye bye
+			name = exit
+			highlight = yes
+			ai_chance = { factor = 100 }
+		}
+	}
+	#white peace
+	country_event = {
+		id = zzz_support_event.3
+		title = zzz_support_event.3.t
+		desc = zzz_support_event.3.d
+		picture = DIPLOMACY_eventPicture
+
+		trigger = {
+			has_global_flag = zzz_white_peace
+			ai = yes
+			war_exhaustion = 5
+			any_country = {
+				ai = yes
+				OR = {
+					AND = {
+						is_in_war = {
+							attacker_leader = ROOT
+							defender_leader = THIS
+							duration = 1825            
+						}
+						war_score_against = {
+							who = ROOT
+							value = 0
+						}
+						NOT = {
+							war_score_against = {
+								who = ROOT
+								value = 1
+							}
+						}
+					}
+					AND = {
+						is_in_war = {
+							attacker_leader = ROOT
+							defender_leader = THIS
+							duration = 3650            
+						}
+						war_score_against = {
+							who = ROOT
+							value = -20
+						}
+						NOT = {
+							war_score_against = {
+								who = ROOT
+								value = 20
+							}
+						}
+					}
+				
+				}
+			}
+		}
+
+		mean_time_to_happen = {    
+			months = 6                                   
+		}
+
+		immediate = {
+			every_country = {
+				limit = {
+					ai = yes
+					OR = {
+						AND = {
+							is_in_war = {
+								attacker_leader = ROOT
+								defender_leader = THIS
+								duration = 1825            
+							}
+							war_score_against = {
+								who = ROOT
+								value = 0
+							}
+							NOT = {
+								war_score_against = {
+									who = ROOT
+									value = 1
+								}
+							}
+						}
+						AND = {
+							is_in_war = {
+								attacker_leader = ROOT
+								defender_leader = THIS
+								duration = 3650            
+							}
+							war_score_against = {
+								who = ROOT
+								value = -20
+							}
+							NOT = {
+								war_score_against = {
+									who = ROOT
+									value = 20
+								}
+							}
+						}
+					}
+				}
+				white_peace = ROOT
+			}
+		}
+	 
+		option = {
+			name = zzz_support_event1.EVTOPT1
+		
+			ai_chance = { factor = 100 }
+		}
+	}
+	
+	#Foreign Trading Posts
+	country_event = {
+		id = zzz_support_event.4
+		title = zzz_support_event.4.t
+		desc = zzz_support_event.4.d
+		is_triggered_only = yes
+		#fire_only_once = yes
+		trigger = { 
+			ai = no 
+			#NOT = { has_global_flag = tp_triggered }
+		}
+		#immediate = { set_global_flag = tp_triggered }
+
+		option = { ### Bye bye
+			name = exit
+			highlight = yes
+		}
+		
+		option = {
+			name = "zzz_support_event.tp.all.1"
+			hidden_event = {
+				country_event = {
+					id = zzz_support_event.4
+				}
+			}
+			tp_india_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+			tp_me_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+			tp_china_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+			tp_sea_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+			tp_japan_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+			tp_africa_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+			tp_misc_group = {
+				set_province_flag = TP_trading_post
+				add_province_modifier = { name = trading_post_province duration = -1 }
+			}
+		}
+		option = {
+			name = "zzz_support_event.tp.all.2"
+			hidden_event = {
+				country_event = {
+					id = zzz_support_event.4
+				}
+			}
+			hidden_effect = {
+				tp_india_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+				tp_me_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+				tp_china_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+				tp_sea_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+				tp_japan_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+				tp_africa_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+				tp_misc_group = {
+					clr_province_flag = TP_trading_post
+					remove_province_modifier = trading_post_province duration
+				}
+			}
+		}
+	}
+	

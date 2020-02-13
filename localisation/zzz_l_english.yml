@@ -1,0 +1,106 @@
+﻿l_english:
+ happy_merchants_title:0 "Show options for §GHappy Merchants§!"
+ 
+ POP_dev_button_interactions.601.a:0 "Manage Rural Goods in $PROVINCENAME$"
+ 
+ POP_dev_button_interactions.602.t:0 "$PROVINCENAME$ rural production options."
+ POP_dev_button_interactions.602.d:0 "Establishing a timber preserve will halt production of the current trade good until the timber stand has reached maturity, which can take up to 50 years in terrain that isn't already wooded, forest or jungle. \n\nCash crops can be planted in colonial regions and Southeast Asia. \n\nSlave markets can established along the Sub-Saharan African coast."
+ POP_dev_button_interactions.602.forest:0 "Designate province for timber production."
+ POP_dev_button_interactions.602.crop:0 "Plant cash crops."
+ POP_dev_button_interactions.602.slave:0 "Establish slave market."
+ POP_dev_button_interactions.602.fur:0 "Establish fur trapping lines."
+ POP_dev_button_interactions.602.food:0 "Plant food crops."
+ POP_dev_button_interactions.602.cancel:0 "Cancel ongoing changes."
+ 
+ plant_forest:0 "Establish timber reserve"
+ plant_crop:0 "Planting cash crops"
+ plant_slaves:0 "Establishing slave markets"
+ plant_fur:0 "Setting up trap lines"
+ plant_food:0 "Planting food crops"
+ zzz_plant_crop.100.t:0 "Timber Reserve Established"
+ zzz_plant_crop.100.d:0 "Our §GTimber§! Reserve in $PROVINCENAME$ has reached maturity, abandon the production of §R[Root.GetTradeGoodsName]§!."
+ zzz_plant_crop.100.a:0 "About time."
+ zzz_plant_crop.100.b:0 "Cut it down!"
+ 
+ zzz_plant_crop.101.t:0 "Cash Crops Planted."
+ zzz_plant_crop.101.d:0 "Our farmers in $PROVINCENAME$ have finished sowing new crops to replace §R[Root.GetTradeGoodsName]§!, what have they planted?"
+ zzz_plant_crop.101.a:0 "Their efforts were in vein."
+ 
+ zzz_plant_crop.102.t:0 "Slave Markets Established."
+ zzz_plant_crop.102.d:0 "Open the §GSlaves§! markets and stop producing §R[Root.GetTradeGoodsName]§! in $PROVINCENAME$?"
+ zzz_plant_crop.102.a:0 "Start the auctions!"
+ zzz_plant_crop.102.b:0 "Shut it down!"
+ 
+ zzz_plant_crop.103.t:0 "Fur Trapping Lines Established."
+ zzz_plant_crop.103.d:0 "Switch rural production in $PROVINCENAME$ from §R[Root.GetTradeGoodsName]§! to §Gfur§!?"
+ zzz_plant_crop.103.a:0 "Send out the trappers."
+ zzz_plant_crop.103.b:0 "Shut it down!"
+ 
+ zzz_plant_crop.104.t:0 "Food Crops Planted."
+ zzz_plant_crop.104.d:0 "Switch rural production in $PROVINCENAME$ from §R[Root.GetTradeGoodsName]§! to §Gfood crops§!?"
+ zzz_plant_crop.104.a:0 "The people need to eat."
+ zzz_plant_crop.104.b:0 "Not at this time."
+ 
+ zzz_plant_crop.200.t:0 "AI Crop Planting"
+ zzz_plant_crop.200.d:0 "Enables the AI to plant cash crops."
+ zzz_plant_crop.200.enable:0 "Enable AI Crop Planting"
+ zzz_plant_crop.200.disable:0 "Disable AI Crop Planting"
+ 
+ zzz_plant_crop.201.t:0 "AI Crop Planting"
+ zzz_plant_crop.201.d:0 "Choose a type of rural good to change."
+ zzz_plant_crop.201.a:0 "Slaves"
+ zzz_plant_crop.201.b:0 "Fur"
+ zzz_plant_crop.201.c:0 "Cash Crops"
+ zzz_plant_crop.201.x:0 "Exit"
+ 
+ zzz_support_event.101.t:0 "§GHappy Merchants§!"
+ zzz_support_event.101.d:0 "Features of the Happy Merchants mod can be activated/deactivated here. \nAI White Peace resolves wars between AI tags if no war progress has been made after 5 years."
+ 
+ zzz_support_event.2.t:0 "AI Support Options"
+ zzz_support_event.2.d:0 "Applies buffs to AI nations based on the players great power status."
+ zzz_support_event.2.enable:0 "Enable AI Support bonuses"
+ zzz_support_event.2.disable:0 "Disable AI Support bonuses"
+ 
+ zzz_support_event.3.t:0 "AI White Peace"
+ zzz_support_event.3.d:0 "Forces the AI to white peace out of unresolvable wars."
+ zzz_support_event.3.enable:0 "Enable AI White Peace"
+ zzz_support_event.3.disable:0 "Disable AI White Peace"
+ 
+ zzz_ai_support_0:0 "AI support bonus (0)."
+ zzz_ai_support_1:0 "AI support bonus (1)."
+ zzz_ai_support_2:0 "AI support bonus (2-3)"
+ zzz_ai_support_3:0 "AI support bonus (4-5)"
+ zzz_ai_support_4:0 "AI support bonus (6-8)"
+ 
+ zzz_support_event.4.t:0 "Foreign Trading Posts"
+ zzz_support_event.4.d:0 "Enable forieng trading posts in selected provinces. \nIf the foreign trading post list is updated, you can add the new provinces to your game by reenabling the feature. "
+ zzz_support_event.tp.all.1:0 "Enable Foreign Trading Posts"
+ zzz_support_event.tp.all.2:0 "Disable Foreign Trading Posts" 
+ 
+ zzz_support_event.tp.india.1:0 "Enable Foreign Trading Posts in India"
+ zzz_support_event.tp.india.2:0 "Disable Foreign Trading Posts in India" 
+ zzz_support_event.tp.me.1:0 "Enable Foreign Trading Posts in the Middle East"
+ zzz_support_event.tp.me.2:0 "Disable Foreign Trading Posts in the Middle East"
+ zzz_support_event.tp.sea.1:0 "Enable Foreign Trading Posts in South East Asia"
+ zzz_support_event.tp.sea.2:0 "Disable Foreign Trading Posts in South East Asia"
+ zzz_support_event.tp.china.1:0 "Enable Foreign Trading Posts in China"
+ zzz_support_event.tp.china.2:0 "Disable Foreign Trading Posts in China" 
+ zzz_support_event.tp.japan.1:0 "Enable Foreign Trading Posts in Japan"
+ zzz_support_event.tp.japan.2:0 "Disable Foreign Trading Posts in Japan"
+ zzz_support_event.tp.africa.1:0 "Enable Foreign Trading Posts in Africa"
+ zzz_support_event.tp.africa.2:0 "Disable Foreign Trading Posts in Africa"
+ zzz_support_event.tp.misc.1:0 "Enable Foreign Trading Posts in miscellaneous provinces"
+ zzz_support_event.tp.misc.2:0 "Disable Foreign Trading Posts in miscellaneous provinces"
+ 
+ british_command_aftercastle:0 "British Command Aftercastle"
+ british_command_aftercastle_desc:0 "Rule, Britannia! Britannia, rule the waves! Britons never, never, never shall be slaves."
+ merchant_marines:0 "Merchant Marines"
+ merchant_marines_desc:0 "These Marines aren't drafted from your common soldiery, they're experienced seamen who know how to bring a boat ashore under the worst conditions.
+ 
+ zzz_decentralize_vassal: "Decentralize Vassal"
+ zzz_decentralize_vassal_title: "Decentralize Vassal"
+ zzz_decentralize_vassal_desc: "[From.GetName] will be granted the status of a decentralized vassal, increasing their autonomy but reducing their diplomatic burden."
+ zzz_decentralize_vassal_tooltip: "[From.GetName] will be granted the status of a decentralized vassal, increasing their autonomy but reducing their diplomatic burden."
+ 
+ CHILE_OPEN_TT:1 "Chile and La Plata can be colonised only if you have one of the colonial ideas or if you have dip tech 30."
+ ALASKA_OPEN_TT:1 "The Pacific Coast can be colonised only if you have one of the colonial ideas or if you have dip tech 50."

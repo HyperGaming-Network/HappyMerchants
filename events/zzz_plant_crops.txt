@@ -1,0 +1,986 @@
+namespace = zzz_plant_crop
+
+#plant forest
+province_event = {
+	id = zzz_plant_crop.100
+	title = "zzz_plant_crop.100.t"
+	desc = "zzz_plant_crop.100.d"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = no
+	
+	trigger = {
+		has_province_modifier = plant_forest
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.4
+			OR = {
+				wood_trigger = yes
+				jungle_trigger = yes
+			}
+		}
+		modifier = {
+			factor = 0.3
+			forest_trigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			woods_trigger = yes
+		}
+		modifier = {
+			factor = 0.6
+			jungle_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			mountains_trigger = yes
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 32 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 40 }
+		}
+	}
+	
+	option = {
+		name = "zzz_plant_crop.100.a"
+		ai_chance = { factor = 100 }
+		
+		remove_province_modifier = plant_forest
+		clr_province_flag = changing_crop
+		
+		change_trade_goods = lumber
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = {
+		name = "zzz_plant_crop.100.b"
+		ai_chance = { factor = 100 }
+		
+		remove_province_modifier = plant_forest
+		clr_province_flag = changing_crop
+	}
+}
+
+#PLANT CASH CROPS
+province_event = {
+	id = zzz_plant_crop.101
+	title = "zzz_plant_crop.101.t"
+	desc = "zzz_plant_crop.101.d"
+	picture = TRADEGOODS_eventPicture		#FEAST_eventPicture
+	is_triggered_only = no
+	
+	trigger = {
+		has_province_modifier = plant_crop
+	}
+	
+	mean_time_to_happen = {
+		months = 36		#60
+		modifier = {
+			factor = 2
+			forest_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			wood_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			hills_trigger = yes
+		}
+		modifier = {
+			factor = 2
+			highlands_trigger = yes
+		}
+		modifier = {
+			factor = 2.5
+			mountains_trigger = yes
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 12 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 28 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 32 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 36 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 40 }
+		}
+	}
+	immediate = {
+		clr_country_flag = ai_changing_crop
+		clr_province_flag = changing_crop
+	}
+	option = { 
+		name = "pepper"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = southeast_asia_superregion
+				region = papua_region 
+				region = malaya_region 
+			} 
+		}
+		change_trade_goods = pepper
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "clove"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = southeast_asia_superregion
+				region = papua_region 
+				region = malaya_region 
+			}
+		}
+		change_trade_goods = clove
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "nutmeg"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = southeast_asia_superregion
+				region = papua_region 
+				region = malaya_region 
+			}
+		}
+		change_trade_goods = nutmeg
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "cinnamon"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = southeast_asia_superregion
+				region = papua_region 
+				#region = malaya_region 
+				region = indian_ocean_islands_region 
+				region = carnatic_region 
+			}
+		}
+		change_trade_goods = cinnamon
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "sugar"
+		ai_chance = { factor = 50 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = central_america_superregion
+				continent = south_america
+				continent = southeast_asia
+				continent = indian_continent
+				region = papua_region 
+			}
+			tropical = yes
+			mountains_trigger = no
+			forest_trigger = no
+		}
+		change_trade_goods = sugar
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "coffee"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = central_america_superregion
+				continent = south_america
+				continent = sub_sahara
+				superregion = near_east_superregion
+			}
+			#tropical = yes
+		}
+		change_trade_goods = coffee
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "cacao"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = central_america_superregion
+				continent = south_america
+				continent = sub_sahara
+				
+			}
+			tropical = yes
+		}
+		change_trade_goods = cacao
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "tobacco"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = central_america_superregion
+				superregion = east_america_superregion 
+				#continent = north_america
+			}
+			#tropical = yes
+		}
+		change_trade_goods = tobacco
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "incense"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = near_east_superregion
+			}
+		}
+		change_trade_goods = incense
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "opium"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				superregion = southeast_asia_superregion
+				superregion = west_india_superregion  
+				superregion = persia_superregion 
+			}
+			NOT = {
+				flats_trigger = yes
+				jungle_trigger = yes
+			}
+		}
+		change_trade_goods = opium
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = { 
+		name = "tea"
+		ai_chance = { factor = 10 }
+		remove_province_modifier = plant_crop
+		trigger = {
+			OR = {
+				continent = southeast_asia
+				continent = east_asia 
+				continent = indian_continent 
+				continent = sub_sahara
+			}
+			OR = {
+				hills_trigger = yes
+				highlands_trigger = yes
+				mountains_trigger = yes
+				has_terrain = small_island
+			}
+		}
+		change_trade_goods = tea
+		
+		hidden_effect = {
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}	
+	option = {
+		name = "zzz_plant_crop.101.a"
+		ai_chance = { factor = 1 }
+		
+		remove_province_modifier = plant_crop
+		clr_province_flag = changing_crop
+		clr_country_flag = changing_crop
+	}
+}
+#SLAVES
+province_event = {
+	id = zzz_plant_crop.102
+	title = "zzz_plant_crop.102.t"
+	desc = "zzz_plant_crop.102.d"
+	picture = ENCOMIENDA_eventPicture
+	is_triggered_only = no
+	
+	trigger = {
+		has_province_modifier = plant_slaves
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 12 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 28 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 32 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 36 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 40 }
+		}
+	}
+	
+	option = {
+		name = "zzz_plant_crop.102.a"
+		ai_chance = { factor = 100 }
+		
+		change_trade_goods = slaves
+		
+		hidden_effect = {
+			remove_province_modifier = plant_slaves
+			clr_province_flag = changing_crop
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = {
+		name = "zzz_plant_crop.102.b"
+		ai_chance = { factor = 10 }
+		
+		hidden_effect = {
+			remove_province_modifier = plant_slaves
+			clr_province_flag = changing_crop
+			
+		}
+	}
+}
+#FUR
+province_event = {
+	id = zzz_plant_crop.103
+	title = "zzz_plant_crop.103.t"
+	desc = "zzz_plant_crop.103.d"
+	picture = ENCOMIENDA_eventPicture
+	is_triggered_only = no
+	
+	trigger = {
+		has_province_modifier = plant_fur
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 12 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 28 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 32 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 36 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 40 }
+		}
+	}
+	
+	option = {
+		name = "zzz_plant_crop.103.a"
+		ai_chance = { factor = 100 }
+		
+		change_trade_goods = fur
+		
+		hidden_effect = {
+			remove_province_modifier = plant_fur
+			clr_province_flag = changing_crop
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+	}
+	option = {
+		name = "zzz_plant_crop.103.b"
+		ai_chance = { factor = 10 }
+		
+		hidden_effect = {
+			remove_province_modifier = plant_slaves
+			clr_province_flag = changing_crop
+		}
+	}
+}
+#FOOD
+province_event = {
+	id = zzz_plant_crop.104
+	title = "zzz_plant_crop.104.t"
+	desc = "zzz_plant_crop.104.d"
+	picture = FEAST_eventPicture
+	is_triggered_only = no
+	
+	trigger = {
+		has_province_modifier = plant_food
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 12 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 28 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 32 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 36 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 40 }
+		}
+	}
+	
+	option = {
+		name = "zzz_plant_crop.104.a"
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = {
+				OR = {
+					prominence_terrain_trigger = yes
+					has_terrain = taiga
+				}
+			}
+			change_trade_goods = livestock
+		}
+		if = {
+			limit = {
+				has_terrain = tundra
+			}
+			change_trade_goods = fish
+		}
+		if = {
+			limit = {
+				OR = {
+					continent = europe
+					continent = mena
+				}
+				shrub_trigger = yes
+			}
+			change_trade_goods = olive
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						continent = europe
+						continent = mena
+					}
+				}
+				shrub_trigger = yes
+			}
+			change_trade_goods = wool
+		}
+		if = {
+			limit = {
+				OR = {
+					continent = oceania
+					continent = southeast_asia
+					continent = indian_continent
+					continent = east_asia
+				}
+				NOT = {
+					OR = {
+						prominence_terrain_trigger = yes
+						desert_trigger = yes
+						has_terrain = taiga
+						shrub_trigger = yes
+					}
+				}
+			}
+			change_trade_goods = rice
+		}
+		if = {
+			limit = {
+				OR = {
+					continent = europe
+					continent = mena
+					continent = central_asia
+					continent = north_asia
+					superregion = central_asia_superregion
+					superregion = eastern_steppe_superregion
+				}
+				NOT = {
+					OR = {
+						prominence_terrain_trigger = yes
+						desert_trigger = yes
+						has_terrain = taiga
+						shrub_trigger = yes
+					}
+				}
+			}
+			change_trade_goods = wheat
+		}
+		if = {
+			limit = {
+				continent = sub_sahara
+				NOT = {
+					OR = {
+						prominence_terrain_trigger = yes
+						desert_trigger = yes
+						has_terrain = taiga
+						shrub_trigger = yes
+					}
+				}
+			}
+			change_trade_goods = millet
+		}
+		if = {
+			limit = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				NOT = {
+					desert_trigger = yes
+				}
+			}
+			change_trade_goods = maize
+		}
+		hidden_effect = {
+			remove_province_modifier = plant_food
+			clr_province_flag = changing_crop
+			set_rural_goods_stuff = yes
+			set_base_price_of_goods = yes
+		}
+
+	}
+	option = {
+		name = "zzz_plant_crop.104.b"
+		ai_chance = { factor = 10 }
+		
+		hidden_effect = {
+			remove_province_modifier = plant_food
+			clr_province_flag = changing_crop
+		}
+	}
+}
+#AI Crop Planting Menu
+country_event = {
+	id = zzz_plant_crop.200
+	title = "zzz_plant_crop.200.t"
+	desc = "zzz_plant_crop.200.d"
+	picture = TRADEGOODS_eventPicture
+	is_triggered_only = yes
+	#fire_only_once = yes
+	
+	trigger = {
+		ai = no
+	}
+	
+	option = {
+		name = "zzz_plant_crop.200.enable"
+		trigger = {
+			NOT = { has_country_flag = zzz_ai_plant_crop }
+		}
+		set_country_flag = zzz_ai_plant_crop
+		hidden_effect = {
+			every_country = {
+				clr_country_flag = ai_changing_crop
+			}	
+		}
+		country_event = {
+			id = zzz_plant_crop.201
+		}
+	}
+	option = {
+		name = "zzz_plant_crop.200.disable"
+		trigger = {
+			has_country_flag = zzz_ai_plant_crop
+		}
+		clr_country_flag = zzz_ai_plant_crop
+		hidden_effect = {
+			every_country = {
+				clr_country_flag = ai_changing_crop
+			}	
+		}
+	}
+	option = { ### Bye bye
+		name = exit
+		ai_chance = { factor = 100 }
+		highlight = yes
+	}
+}
+#AI Crop Planting
+country_event = {
+	id = zzz_plant_crop.201
+	title = "zzz_plant_crop.201.t"
+	desc = "zzz_plant_crop.201.d"
+	picture = CITY_DEVELOPMENT_AU_eventPicture
+	#is_triggered_only = no
+	
+	hidden = yes
+	
+	trigger = { 
+		has_country_flag = zzz_ai_plant_crop
+	}
+	
+	mean_time_to_happen = { 
+		months = 200
+		modifier = {
+			factor = 0.9
+			is_year = 1400
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1450
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1500
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1550
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1600
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1650
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1700
+		}
+		modifier = {
+			factor = 0.9
+			is_year = 1750
+		}	
+	}
+	
+	immediate {
+		 
+			every_country = {
+				limit = {
+					ai = yes
+					OR = {
+						technology_group = western
+						is_colonial_nation =yes
+						capital_scope = { continent = europe }
+						capital_scope = { continent = mena }
+					}
+					#absolutism = 35
+					#NOT = { has_country_flag = ai_changing_crop }
+					any_owned_province = {
+						#NOT = { has_province_modifier = changing_crop }
+						OR = {
+							continent = sub_sahara 
+							continent = north_america
+							continent = south_america
+							continent = southeast_asia
+							continent = east_asia 
+							continent = indian_continent
+						
+							#superregion = central_america_superregion
+							superregion = persia_superregion
+							
+							has_province_modifier = fur_low
+							has_province_modifier = fur_medium
+							has_province_modifier = fur_large
+						}
+					}
+				}
+				random_owned_province = {
+					if = {
+						limit = {
+							OR = {
+								has_province_modifier = fur_low
+								has_province_modifier = fur_medium
+								has_province_modifier = fur_large
+							}
+							NOT = {
+								trade_goods = fur
+								has_province_modifier = plant_fur
+								has_province_modifier = plant_forest
+								has_province_modifier = plant_crop
+								has_province_modifier = plant_slaves
+							}
+						}
+						add_province_modifier = {
+							name = plant_fur
+							duration = 3650
+						}
+					}
+					if_else = {
+						limit = {
+							OR = {
+								NOT = { check_variable = { which = timber_ratio value = -5 } }
+							}
+							NOT = {
+								has_province_modifier = plant_fur
+								has_province_modifier = plant_forest
+								has_province_modifier = plant_crop
+								has_province_modifier = plant_slaves
+								
+								trade_goods = pepper
+								trade_goods = clove
+								trade_goods = cinnamon
+								trade_goods = nutmeg
+								trade_goods = sugar
+								trade_goods = carmine
+								trade_goods = opium
+								trade_goods = tea
+								trade_goods = lumber
+							}
+						}
+						add_province_modifier = {
+							name = plant_forest
+							duration = 18250
+						}
+					}
+					if = {
+						limit = {
+							continent = sub_sahara
+							owner = { NOT = { has_country_modifier = the_abolish_slavery_act } }
+							NOT = {
+								has_province_modifier = plant_fur
+								has_province_modifier = plant_forest
+								has_province_modifier = plant_crop
+								has_province_modifier = plant_slaves
+								
+								trade_goods = slaves
+								trade_goods = lumber
+							}
+						}
+						add_province_modifier = {
+							name = plant_slaves
+							duration = 3650
+						}			
+					}
+					if = {
+						limit = {
+							OR = {
+								continent = south_america
+								continent = north_america
+								continent = southeast_asia
+								continent = east_asia 
+								continent = indian_continent
+								continent = sub_sahara
+								
+								superregion = near_east_superregion
+								#superregion = central_america_superregion
+								superregion = persia_superregion
+								
+							}
+							NOT = {
+								has_province_modifier = plant_fur
+								has_province_modifier = plant_forest
+								has_province_modifier = plant_crop
+								has_province_modifier = plant_slaves
+								
+								trade_goods = pepper
+								trade_goods = clove
+								trade_goods = cinnamon
+								trade_goods = nutmeg
+								trade_goods = sugar
+								trade_goods = carmine
+								trade_goods = opium
+								trade_goods = tea
+								trade_goods = lumber
+								}
+						}
+						add_province_modifier = {
+							name = plant_crop
+							duration = 3650
+						}
+					}
+					if = {
+						limit = {
+							continent = sub_sahara
+							NOT = {
+								has_province_modifier = plant_fur
+								has_province_modifier = plant_forest
+								has_province_modifier = plant_crop
+								has_province_modifier = plant_slaves
+								
+								trade_goods = slaves
+								trade_goods = lumber
+							}
+						}
+						random = {
+							chance = 80
+							add_province_modifier = {
+								name = plant_slaves
+								duration = 3650
+							}		
+						}
+						random = {
+							chance = 20
+							add_province_modifier = {
+								name = plant_crop
+								duration = 3650
+							}		
+						}
+					}
+				}
+			}
+		
+	}
+
+	option = {
+		name = exit
+		highlight = yes
+		ai_chance = { factor = 100 }
+	}
+}

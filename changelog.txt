@@ -1,0 +1,77 @@
+v1.00
+Misc changes
+-slightly reduced global build costs
+-quicker coring speed
+-cheaper diplomatic annexation cost
+-reduced colonization speed
+-buffs to colonial nations rural production and build costs
+-rural production bonuses for warehouse buildings
+-minor idea adjustments
+-reduced requirements for forming East India Company
+-full autonomy East India Company now works and doesn't cause instant rebellion
+-East India Company protectorate subject type fixes/changes (it's currently overpowered and has a bunch of features it should have enabled for fun/testing)
+-East India Company cb fixed to work with autonomous company
+-new English flagship
+-Client State changes (wip)
+-Natural Harbors: The trade bonuses from geographic features such as natural harbors, straits, confluences, etc. is increased. Some new/reintroduced harbors.
+-tech restriction on colonizing La Plata and Chile, so the AI (England especially) stops wasting their colonists there
+-reduced manpower cost of contributing manpower to infrastructure projects built through the province interaction button
+-drilling grants siege bonuses
+
+v1.01
+-fixed plant_food flag not being cleared upon completion
+-fixed Military Academy local manpower buff scope
+
+v.1.02
+-made AI White Peace optional
+-added "aboloition of slavery act" condition on AI crop switching to slaves
+-added forest planting for AI conditional on their timber reserves
+
+-timber production bonus from forestry acts increased from 1.25/1.5/2 to 1.5/2/3
+-increased timber production bonus from lumber trade good in province
+-timber bonus from lumber trade good now increased by provincial rural goods produced instead of just rural infrastructure for integration with trade investments
+-increased size of timber stock/deficit required for large and huge stock/deficit modifiers
+-potential income from selling timber increased to 40/year
+
+-increase ship move speed by 1
+-heavy ship sailor cost increased to 2000 (M&T default = 500)
+-all other ships sailor cost doubled
+-sailor maintenance halved (ie heavy ships now double, all else the same as M&T)
+-doubled heavy ship ducet cost and build time
+-reduced land over forcelimit penalty
+-removed naval over forcelimit penalties
+
+-rebalanced sources of sailors:
+-naval idea groups, as well as merchant marine and engineering ideas, give bonuses to timber production upon completion
+-sailor maintenance reduced by ideas, tradition, and admiralties
+-all naval idea groups provide a +10% global sailors and -5% sailor maintenance and +500 base sailors, grand fleet +30/-15/+2500
+-timber stock and urban naval supply bonuses provide up to +30% global sailors, +20% sailor recovery, and +2500 base sailors
+-timber buying raises fleet build cost and maintenance significantly, reduces sailor capacity slightly
+-timber deficits cause severe sailor penalties
+
+-changed localization for sailors to reflect their new scope
+
+-added diplomatic action to decentralize vassals
+-added spice island strait crossings
+
+v1.03
+-reduced nearby merchant republic bonus from 75% trade value to 20%
+-reduced trade bonuses from merchant republic trade post
+-increase light ship naval resource cost by +25%
+-shifted some % rural goods produced modifiers to static +rural goods produced for more early game impact and reduced late game benefit.
+-Added tech restrictions on colonizing Alaska and California (they never contribute anything, it's better for performance if they don't get colonized)
+-higher tier cultural buildings unlocked by religious idea groups instead of just idea groups that cause secularism
+-added merchant republic flag ship with faster disembark bonus
+-added AI forest planting, AI tags should switch rural goods to lumber if they are experiencing timber deficits
+
+-added Mulacass to Ceylon trade route, so spice can go through egypt instead of only to East Africa.
+
+-Better Urban Terrain: added graphics for Cafa, Euboia, switched several cities to "mediterranean harbour city" terrain, added some expected terrain combat modifiers.
+
+-Natural Harbours files now included
+
+-changed Bosphorus straight control modifier from -10/5/10 to 2.5/5/10 (you're no longer penalized for siezing Constantinople)
+
+v1.03b
+-changed Jakarta->Ceylon trade route to Jakarta->Orissa
+-added Guinea to Carribean trade route for triangle trading

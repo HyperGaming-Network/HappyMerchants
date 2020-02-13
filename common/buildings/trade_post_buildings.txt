@@ -1,0 +1,70 @@
+########################
+# Trade Post Buildings #
+########################
+
+# Trade Post
+# Trading Post
+# Trading Company
+
+##############
+# Trade Post #
+##############
+
+trading_post = {
+	cost = 100
+	time =  12
+	
+	trigger = {
+		OR = {
+			can_build_trading_post = yes
+			AND = {
+				can_keep_trading_post = yes # Redundant can_keep so that buildings still get removed if they are disqualifed
+				has_building = trading_post # has_building = itself so that building never removes itself unless it fails the can_keep
+			}
+		}
+	}
+	
+	modifier = {
+		#local_production_efficiency = 0.15
+		province_trade_power_value = 5
+		province_trade_power_modifier = 0.15
+		local_defensiveness = 0.25
+		#local_autonomy = 0.25
+		local_unrest = -5
+	}
+	
+	ai_will_do = {
+		factor = 500
+	}
+}
+
+trading_company = {
+	cost = 400
+	time =  24
+		
+	#make_obsolete = trading_post
+	
+	trigger = {
+		OR = {
+			can_build_trading_company = yes
+			AND = {
+				can_keep_trading_company = yes # Redundant can_keep so that buildings still get removed if they are disqualifed
+				has_building = trading_company # has_building = itself so that building never removes itself unless it fails the can_keep
+			}
+		}
+	}
+	
+	modifier = {
+		#local_production_efficiency = 0.3
+		province_trade_power_value = 10
+		province_trade_power_modifier = 0.20
+		local_defensiveness = 0.3
+		#local_autonomy = 0.25
+		local_unrest = -5
+	}
+	
+	ai_will_do = {
+		factor = 1000
+	}
+}
+
